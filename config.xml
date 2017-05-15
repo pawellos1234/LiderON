@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<widget xmlns = "http://www.w3.org/ns/widgets" 
+xmlns:gap = "http://phonegap.com/ns/1.0" 
+id= "testaplikacji" 
+versionCode = "1" 
+version     = "1.0.0" >
+<name>YIELD</name> 
+<description>YIELD</description> 
+<author>Pawel Los</author> 
+<icon src="res/drawable-mdpi/icon1.png" platform="android" />
+<splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+<gap:splash src="splash.png" />
+<gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png"/>
+
+<feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="debug-server" required="true">
+       <param name="domain" value="http://debug.phonegap.com"/>
+       <param name="key" value="willoughby"/>
+    </feature>
+
+<gap:platform name="android" /> 
+<gap:plugin name="org.apache.cordova.dialogs" />
+<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+<gap:plugin name="org.apache.cordova.core.device-orientation"/>
+<gap:plugin name="org.apache.cordova.splashscreen"/>
+<gap:plugin name="org.apache.cordova.Device"/>
+
+
+
+
+
+
+
+ </widget>
