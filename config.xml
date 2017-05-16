@@ -4,9 +4,9 @@ xmlns:gap = "http://phonegap.com/ns/1.0"
 id= "testaplikacji" 
 versionCode = "1" 
 version     = "0.0.1" >
-<name>LiderON</name> 
+<name>Lider ON</name> 
 <description>LiderON</description> 
-<author>Pawel Los ver.0.0.1</author> 
+<author>Pawel Los ver. 0.0.1</author> 
 <icon src="res/drawable-mdpi/icon1.png" platform="android" />
 <splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
 <gap:splash src="splash.png" />
