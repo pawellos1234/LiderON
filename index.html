@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Lider ON</title>
+	<title>LiderON</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
@@ -26,6 +27,8 @@
 	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
 	<script src="jquery.js"></script>
 	<script src="jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="jqm_maps_app.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	
 	
 	<script>
@@ -78,6 +81,7 @@
 			<li><a href="#note">Notatnik</a></li>
 			<li><a href="#geolocation">Lokalizacja</a></li>			
 			<li><a href="#device">Device</a></li>
+			<li><a href="#autor">Autor</a></li>
 			
 			
 			
@@ -102,7 +106,7 @@
     <body>
         <div class="app">
             <div id="deviceready" class="blink">
-                <p class="event listening">Connecting...</p>
+                <p class="event listening">Connecting</p>
             </div>
             <p><a href="#" class="topcoat-button" id="scan">SCAN</a></p>
             <p id="info"></p>
@@ -130,7 +134,7 @@
 
 <button onclick="myFunction()">Oblicz:</button>
 <p>  % </p>
-<p  id="show">Wynik:</p>
+<p id="show">Wynik:</p>
 
 
 <script>
@@ -138,14 +142,14 @@
 function myFunction(){
 var good = document.getElementById("good").value;
 var bad = document.getElementById("bad").value;
-var yield = (good-bad)/good*100;<!--przeliczenie yielda wzór-->
+var yield = (good-bad)/good*100;                      <!--przeliczenie yielda wzór-->
 document.getElementById("show").innerHTML = yield;
 document.getElementById("show").innerHTML = yield;
 }
 
 </script>
 	
-</div>							<!-- /page two -->
+</div>
     
 	<div data-role="page" id="device" data-theme="b">
 	<button onclick="getDevice()">O urządzeniu</button>
@@ -170,40 +174,19 @@ document.getElementById("show").innerHTML = yield;
 	
 	
 		<div data-role="page" id="note" data-theme="b">
-	<script type="text/javascript" charset="utf-8">
-  <script>
-
-      $(document).ready(function (){
-
-        $('#button').on("click", function() {
-
-          var zapisanaNotatka = $("#note").val();
-
-          if(typeof(Storage) !== "undefined"){
-            localStorage.setItem("zmienna", zapisanaNotatka);
-            document.getElementById("paragraf").innerHTML = localStorage.getItem("zmienna");
-          } else {
-            document.getElementById("paragraf").innerHTML = "Sorry, error :( ";
-          }
-
-
-        });
-      });
-
-
-  </script>
-
-    </script>
- <form action="">
+	<script type="text/javascript" charset="utf-8"></script>
+	<form action="">
     <label for="note">Wprowadź notatkę:</label>
-	<textarea name="nazwa" cols="x" rows="y">	</textarea>
+	<textarea name="nazwa" cols="15" rows="2"></textarea>
 </form>
-                  <button class="ui-btn" id="button">zapisz</button>
+    <button class="ui-btn" id="button">zapisz</button>
 	</div>
-	
-	
+	<body>
 
-	
+
+</body>
+	 
+	 
 		<div data-role="page" id="realizacja" data-theme="b">
 	<script type="text/javascript" charset="utf-9"> ,</script>
  <div class="selected_area">
@@ -241,96 +224,67 @@ document.getElementById("show").innerHTML = yield;
             </div>
 	</div>
 	
-		<div data-role="page" id="geolocation" data-theme="b">
-	<button onclick="getDevice()">O urządzeniu</button>
-	<script type="text/javascript" charset="utf-8">
-var Latitude = undefined;
-var Longitude = undefined;
- 
-// Get geo coordinates 
- 
-function getMapLocation() {
- 
-    navigator.geolocation.getCurrentPosition
-    (onMapSuccess, onMapError, { enableHighAccuracy: true });
-}
- 
-// Success callback for get geo coordinates 
- 
-var onMapSuccess = function (position) {
- 
-    Latitude = position.coords.latitude;
-    Longitude = position.coords.longitude;
- 
-    getMap(Latitude, Longitude);
- 
-}
- 
-// Get map by using coordinates 
- 
-function getMap(latitude, longitude) {
- 
-    var mapOptions = {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 1,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
- 
-    map = new google.maps.Map
-    (document.getElementById("map"), mapOptions);
- 
- 
-    var latLong = new google.maps.LatLng(latitude, longitude);
- 
-    var marker = new google.maps.Marker({
-        position: latLong
-    });
- 
-    marker.setMap(map);
-    map.setZoom(15);
-    map.setCenter(marker.getPosition());
-}
- 
-// Success callback for watching your changing position 
- 
-var onMapWatchSuccess = function (position) {
- 
-    var updatedLatitude = position.coords.latitude;
-    var updatedLongitude = position.coords.longitude;
- 
-    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {
- 
-        Latitude = updatedLatitude;
-        Longitude = updatedLongitude;
- 
-        getMap(updatedLatitude, updatedLongitude);
+<div data-role="page" id="geolocation" data-theme="b">
+
+<button onclick="getLocation()">Lokalizacja</button>
+
+<div id="mapholder"></div>
+
+<script src="https://maps.google.com/maps/api/js?sensor=false&key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU"></script>
+
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
- 
-// Error callback 
- 
-function onMapError(error) {
-    console.log('code: ' + error.code + '\n' +
-        'message: ' + error.message + '\n');
+
+function showPosition(position) {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+    latlon = new google.maps.LatLng(lat, lon)
+    mapholder = document.getElementById('mapholder')
+    mapholder.style.height = '250px';
+    mapholder.style.width = '500px';
+
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
 }
- 
-// Watch your changing position 
- 
-function watchMapPosition() {
- 
-    return navigator.geolocation.watchPosition
-    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
-}	
 
-    </script>
- 
-    <p id="geolocation"></p>
- 
-	</div>
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+</div>
+<div data-role="page" id="autor" data-theme="b">
+	<script type="text/javascript" charset="utf-9"> ,</script>
+ <div class="selected_area">	
+		
+		
 </head>
-
-
-
-
 
 </html>

@@ -8,9 +8,9 @@ version     = "0.0.1" >
 <description>LiderON</description> 
 <author>Pawel Los ver. 0.0.1</author> 
 <icon src="res/drawable-mdpi/icon1.png" platform="android" />
-<splash src="res/screen/android/splash-port-mdpi.png" density="port-mdpi"/>
+<splash src="res/screen/android/splash.png" density="port-mdpi"/>
 <gap:splash src="splash.png" />
-<gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png"/>
+<gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/splash.png"/>
 
 <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="debug-server" required="true">
