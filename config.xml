@@ -1,35 +1,58 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
-<widget xmlns = "http://www.w3.org/ns/widgets" 
-xmlns:gap = "http://phonegap.com/ns/1.0" 
-id= "testaplikacji" 
-versionCode = "1" 
-version     = "0.0.1" >
-<name>Lider ON</name> 
-<description>LiderON</description> 
-<author>Pawel Los ver. 0.0.1</author> 
-<icon src="res/drawable-mdpi/icon1.png" platform="android" />
-<splash src="res/screen/android/splash.png" density="port-mdpi"/>
-<gap:splash src="splash.png" />
-<gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/splash.png"/>
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="io.cordova.myapp7bb67f" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" defaultlocale="en-US">
+  <name>LiderON</name>
+  <author href="http://cordova.io" email="dev@cordova.apache.org">Your name here</author>
+  <vs:template-name>LiderON</vs:template-name>
+  <vs:toolsetVersion>0.0.1</vs:toolsetVersion>
+  <engine name="android" spec="5.2.1" />
+  <engine name="ios" spec="4.2.0" />
+  <engine name="windows" spec="4.4.2" />
+  <content src="index.html" />
+  <access origin="*" />
+  <preference name="SplashScreen" value="screen" />
+  <preference name="windows-target-version" value="10.0" />
+  <!-- Support for Cordova 5.0.0 plugin system -->
+  <plugin name="cordova-plugin-whitelist" spec="1.2.2" />
+  <allow-intent href="http://*/*" />
+  <allow-intent href="https://*/*" />
+  <allow-intent href="tel:*" />
+  <allow-intent href="sms:*" />
+  <allow-intent href="mailto:*" />
+  <allow-intent href="geo:*" />
+  <platform name="android">
+    <allow-intent href="market:*" />
+  </platform>
+  <platform name="ios">
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+  </platform>
+  <platform name="android">
+    <icon src="res/icons/android/icon-36-ldpi.png" density="ldpi" />
+    <icon src="res/icons/android/icon-48-mdpi.png" density="mdpi" />
+    <icon src="res/icons/android/icon-72-hdpi.png" density="hdpi" />
+    <icon src="res/icons/android/icon-96-xhdpi.png" density="xhdpi" />
+  </platform>
+  <platform name="android">
+    <splash src="res/screens/android/screen-hdpi-landscape.png" density="land-hdpi" />
+    <splash src="res/screens/android/screen-ldpi-landscape.png" density="land-ldpi" />
+    <splash src="res/screens/android/screen-mdpi-landscape.png" density="land-mdpi" />
+    <splash src="res/screens/android/screen-xhdpi-landscape.png" density="land-xhdpi" />
+    <splash src="res/screens/android/screen-hdpi-portrait.png" density="port-hdpi" />
+    <splash src="res/screens/android/screen-ldpi-portrait.png" density="port-ldpi" />
+    <splash src="res/screens/android/screen-mdpi-portrait.png" density="port-mdpi" />
+    <splash src="res/screens/android/screen-xhdpi-portrait.png" density="port-xhdpi" />
+  </platform>
 
-<feature name="http://api.phonegap.com/1.0/device" />
-    <feature name="debug-server" required="true">
-       <param name="domain" value="http://debug.phonegap.com"/>
-       <param name="key" value="willoughby"/>
-    </feature>
+  </platform>
+  <plugin name="cordova-plugin-geolocation" spec="~2.4.2" />
+  <plugin name="cordova-plugin-whitelist" spec="~1.2.2" />
+  <plugin name="cordova-plugin-camera" spec="~2.1.1" />
+  <plugin name="cordova-plugin-device" spec="~1.1.1" />
+  <plugin name="cordova-plugin-dialogs" spec="~1.2.0" />
+  <plugin name="cordova-plugin-statusbar" spec="~2.1.2" />
+  <plugin name="cordova-plugin-splashscreen" spec="~3.2.1" />
+  <plugin name="cordova-plugin-network-information" spec="1.2.0" />
+  <plugin name="cordova-plugin-inappbrowser" spec="~1.3.0" />
+  <plugin name="phonegap-plugin-barcodescanner" spec="4.1.0" />
 
-<gap:platform name="android" /> 
-<gap:plugin name="org.apache.cordova.dialogs" />
-<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-<gap:plugin name="org.apache.cordova.core.device-orientation"/>
-<gap:plugin name="org.apache.cordova.splashscreen"/>
-<gap:plugin name="org.apache.cordova.Device"/>
-<gap:plugin name="org.apache.cordova.geolocation"/>
-
-
-
-
-
-
-
- </widget>
+</widget>
