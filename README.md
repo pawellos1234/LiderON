@@ -13,7 +13,7 @@ Na podstawie obserwacji osób, oraz wymagań jakie na podstawie ankiet zostały 
   - Device
   - Autor
 
-Szczegółowe opisaie funkcjonalności:
+# Szczegółowe opisaie funkcjonalności:
 
   - Przelicznik Yeld- funkcja polegająca na przeliczaniu wskaźnika wydajności pakietów PCBA w wskaźniku PASS(A)-BAD(B)/A*100.
   - Scanner- skaner kodów 2D i 3D, jak i QR. Potrzebne do rozpoznawania komponentów.
@@ -38,10 +38,6 @@ Szczegółowe opisaie funkcjonalności:
 
 License
 ----
-
-MIT
-
-
 **Free Software, Hell Yeah!**
 
 
