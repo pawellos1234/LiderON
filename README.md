@@ -27,9 +27,8 @@ Na podstawie obserwacji osób, oraz wymagań jakie na podstawie ankiet zostały 
 
 | Plugin | README |
 | ------ | ------ |
-| jQuery| ["jquery.mobile-1.4.5.min.js"] [PlDb] |
+| jQuery| ["jquery.mobile-1.4.5.min.js"] |
 | Google Maps | [http://maps.google.com/maps/api/js?sensor=false"]|
-| Google Maps | [text/javascript" src="jqm_maps_app.js"]|
 | Barcode| ["com.phonegap.plugins.barcodescanner"]|
 | Device | ["org.apache.cordova.core.device-orientation"]|
 | Splashscreen | ["org.apache.cordova.splashscreen"]|
